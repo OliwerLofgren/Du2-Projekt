@@ -90,6 +90,18 @@ function toggle_cities(event) {
     NO RETURN VALUE
 
   */
+  let all_selected_cities = document.querySelectorAll("#country_filter li");
+  let button = document.querySelector("button");
+  button.classList.toggle("selected");
+
+  function test_function(button_selected) {
+    if (button.classList !== "selected") {
+      button_selected.classList.toggle("selected");
+      update_programmes();
+    }
+  }
+
+  array_each(all_selected_cities, test_function);
 }
 
 // WRITE SPECIFICATION
