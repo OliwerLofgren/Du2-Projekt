@@ -158,41 +158,6 @@ function create_countries_cities_filters() {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter() {
-  function create_level(level) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
-      class: "selected",
-      textContent: level.name,
-    });
-    dom.dataset.id = level.id;
-  }
-  array_each(LEVELS, create_level);
-}
-// Create Subjects Filter
-function create_subjects_filter() {
-  function create_subject(subject) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
-      class: "selected",
-      textContent: subject.name,
-    });
-    dom.dataset.id = subject.id;
-  }
-  array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter() {
-  function create_element(data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
-      class: "selected",
-      textContent: data.name,
-    });
-    dom.dataset.id = data.id;
-  }
-  array_each(LANGUAGES, create_element);
-}
 
 // G / VG (see details in specification)
 // CODE according to specifications
@@ -217,6 +182,62 @@ function create_programme(programme) {
     NO RETURN VALUE
 
   */
+  function create_programme(programme) {
+    /*
+    
+        ARGUMENT
+          programme (object): One of the objects from PROGRAMMES
+    
+        SIDE-EFFECTS
+          This function creates the HTML-element that contains all the information
+          about one programme, as seen in the video / image.
+          
+          VG: The background image is a random image from among the images of the city
+              in which the programme is (via the university)
+          G:  No background image required.
+    
+    
+          VG: The "see more" interaction must be included.
+          G:  The "see more" element is not required. And that information needs not be in place.
+    
+        NO RETURN VALUE
+    
+      */
+    document.querySelector("#programmes > p").innerHTML = "";
+
+    let sun_days = CITIES[UNIVERSITIES[programme.universityID].cityID].sun;
+
+    let ul_dom = document.createElement("li");
+    ul_parent = document.querySelector("#programmes >ul").append(ul_dom);
+    ul_dom.classList.add("programme");
+    ul_dom.innerHTML = `
+        <div class="first_div">
+        <p><b>${programme.name}</b></p>
+        <p>${UNIVERSITIES[programme.universityID].name}</p>
+        <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${
+      COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID]
+        .name
+    }</p >
+        <p>${LEVELS[programme.levelID - 1].name}, ${
+      SUBJECTS[programme.subjectID].name
+    }, ${LANGUAGES[programme.languageID].name}</p>
+        </div >
+        <div class="more_info"></div>
+        <div class="bottom_programme">${
+          CITIES[UNIVERSITIES[programme.universityID].cityID].name
+        }, sun-index: ${
+      CITIES[UNIVERSITIES[programme.universityID].cityID].sun
+    } (${percenter(sun_days, 365)}%)</div>
+        `;
+    let name_of_city =
+      CITIES[
+        UNIVERSITIES[programme.universityID].cityID
+      ].name.toLocaleLowerCase();
+    let normal_jpg = "_normal_1.jpg";
+    ul_dom.style.backgroundImage =
+      "url('/media/geo_images/${name_of_city}${normal_jpg}')";
+  }
+  array_each(PROGRAMMES, create_programme);
 }
 
 // G
