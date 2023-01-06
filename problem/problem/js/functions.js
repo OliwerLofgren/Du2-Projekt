@@ -158,65 +158,25 @@ function create_countries_cities_filters() {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter() {
-  function create_level(level) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
-      class: "selected",
-      textContent: level.name,
-    });
-    dom.dataset.id = level.id;
-  }
-  array_each(LEVELS, create_level);
-}
-// Create Subjects Filter
-function create_subjects_filter() {
-  function create_subject(subject) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
-      class: "selected",
-      textContent: subject.name,
-    });
-    dom.dataset.id = subject.id;
-  }
-  array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter() {
-  function create_element(data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
+
+//Argument: Funktionen tar emot två argument, filter_type är då en varibel som hänvisar parent till rätt förälder. DATA är då vår LANGUAGES, SUBJECT, LEVELS.
+
+//Side effect: Funktionen anropar create med hjälp av array_each. Med hjälp av create_filter_element så skapar vi nycklarna för våra arrayer.
+//parent(querySelector(filter_type)), class(selected), textContent(data.name). Där data blir DATA som ändras med hjälp array_each.
+//Funktion get ett data.id till objektet som är baserat på array.name.
+//Funktionen anropas tre gånger i index.js
+
+//NO RETURN VALUE
+function create_filters(filter_type, DATA) {
+  function create(data) {
+    const create_dom = create_filter_element({
+      parent: document.querySelector(`#${filter_type}_filter > ul`),
       class: "selected",
       textContent: data.name,
     });
-    dom.dataset.id = data.id;
+    create_dom.dataset.id = data.id;
   }
-  array_each(LANGUAGES, create_element);
-}
-
-// G / VG (see details in specification)
-// CODE according to specifications
-function create_programme(programme) {
-  /*
-
-    ARGUMENT
-      programme (object): One of the objects from PROGRAMMES
-
-    SIDE-EFFECTS
-      This function creates the HTML-element that contains all the information
-      about one programme, as seen in the video / image.
-      
-      VG: The background image is a random image from among the images of the city
-          in which the programme is (via the university)
-      G:  No background image required.
-
-
-      VG: The "see more" interaction must be included.
-      G:  The "see more" element is not required. And that information needs not be in place.
-
-    NO RETURN VALUE
-
-  */
+  array_each(DATA, create);
 }
 
 // G
