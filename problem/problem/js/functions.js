@@ -238,6 +238,7 @@ function create_programme(programme) {
     "url('/media/geo_images/${name_of_city}${normal_jpg}')";
 }
 array_each(PROGRAMMES, create_programme);
+
 // G
 // CODE according to the specification
 function update_programmes() {
@@ -254,6 +255,16 @@ function update_programmes() {
       NO RETURN VALUE
 
   */
+
+  let numbers_of_programmes = read_filters();
+  let programmes_shown_before = document.querySelector("#programmes > ul");
+  let programmes_paragraf = document.querySelector("#programmes > p");
+
+  if (numbers_of_programmes.length === 0) {
+    programmes_paragraf.innerHTML = "Inga program upfyller nuvarande filter.";
+    programmes_shown_before.innerHTML = "";
+  }
+  array_each(numbers_of_programmes, create_programme);
 }
 
 // G
