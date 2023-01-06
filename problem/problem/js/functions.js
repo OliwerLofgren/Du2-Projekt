@@ -178,6 +178,8 @@ function create_filters(filter_type, DATA) {
   }
   array_each(DATA, create);
 }
+// G / VG (see details in specification)
+// CODE according to specifications
 
 // G
 // CODE according to the specification
