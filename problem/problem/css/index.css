@@ -1,40 +1,51 @@
 @font-face {
-  font-family: 'Roboto Condensed 300';
-  src: url('../fonts/RobotoCondensed_light/RobotoCondensedLight.eot');
-  src: url('../fonts/RobotoCondensed_light/RobotoCondensedLight.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/RobotoCondensed_light/RobotoCondensedLight.woff2') format('woff2'),
-     url('../fonts/RobotoCondensed_light/RobotoCondensedLight.woff') format('woff'), 
-     url('../fonts/RobotoCondensed_light/RobotoCondensedLight.ttf')  format('truetype');
-} 
+  font-family: "Roboto Condensed 300";
+  src: url("../fonts/RobotoCondensed_light/RobotoCondensedLight.eot");
+  src: url("../fonts/RobotoCondensed_light/RobotoCondensedLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/RobotoCondensed_light/RobotoCondensedLight.woff2")
+      format("woff2"),
+    url("../fonts/RobotoCondensed_light/RobotoCondensedLight.woff")
+      format("woff"),
+    url("../fonts/RobotoCondensed_light/RobotoCondensedLight.ttf")
+      format("truetype");
+}
 
 @font-face {
-  font-family: 'Roboto Condensed 700';
-  src: url('../fonts/RobotoCondensed_bold/RobotoCondensedBold.eot');
-  src: url('../fonts/RobotoCondensed_bold/RobotoCondensedBold.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/RobotoCondensed_bold/RobotoCondensedBold.woff2') format('woff2'),
-     url('../fonts/RobotoCondensed_bold/RobotoCondensedBold.woff') format('woff'), 
-     url('../fonts/RobotoCondensed_bold/RobotoCondensedBold.ttf')  format('truetype');
-} 
+  font-family: "Roboto Condensed 700";
+  src: url("../fonts/RobotoCondensed_bold/RobotoCondensedBold.eot");
+  src: url("../fonts/RobotoCondensed_bold/RobotoCondensedBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/RobotoCondensed_bold/RobotoCondensedBold.woff2")
+      format("woff2"),
+    url("../fonts/RobotoCondensed_bold/RobotoCondensedBold.woff") format("woff"),
+    url("../fonts/RobotoCondensed_bold/RobotoCondensedBold.ttf")
+      format("truetype");
+}
 
 @font-face {
-  font-family: 'Roboto Condensed 400';
-  src: url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot');
-  src: url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff2') format('woff2'),
-     url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff') format('woff'), 
-     url('../fonts/RobotoCondensed_regular/RobotoCondensedRegular.ttf')  format('truetype');
-} 
+  font-family: "Roboto Condensed 400";
+  src: url("../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot");
+  src: url("../fonts/RobotoCondensed_regular/RobotoCondensedRegular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff2")
+      format("woff2"),
+    url("../fonts/RobotoCondensed_regular/RobotoCondensedRegular.woff")
+      format("woff"),
+    url("../fonts/RobotoCondensed_regular/RobotoCondensedRegular.ttf")
+      format("truetype");
+}
 
 :root {
   --gap: 2px;
-  --border_radius: calc( 3 * var(--gap) );
+  --border_radius: calc(3 * var(--gap));
   --c_back: antiquewhite;
   --c_selected: navy;
   --padding: 10px;
 
   --basic_fSz: 13.5px;
 
-  --transition_duration: .5s;
+  --transition_duration: 0.5s;
 }
 
 * {
@@ -45,7 +56,7 @@
   transition-duration: var(--transition_duration);
 
   font-size: var(--basic_fSz);
-  font-family: 'Roboto Condensed 400';
+  font-family: "Roboto Condensed 400";
 }
 
 body {
@@ -73,11 +84,28 @@ body {
 #top_images {
   z-index: 1;
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: var(--gap);
+}
+
+#top_images > div:nth-child(1) {
+  background-image: url("../media/geo_images/madrid_normal_3.jpg");
+  background-position: center;
+}
+
+#top_images > div:nth-child(2) {
+  background-image: url("../media/geo_images/australia_normal_1.jpg");
+  background-position: center;
+}
+
+#top_images > div:nth-child(3) {
+  background-image: url("../media/geo_images/london_normal_2.jpg");
+  background-position: center;
 }
 
 #top_images > * {
@@ -92,7 +120,7 @@ body {
   text-align: center;
   padding: 20px;
   border: 1px solid white;
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 #top_text * {
   font-size: 40px;
@@ -113,7 +141,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: var(--gap)
+  gap: var(--gap);
 }
 
 #others_filter {
@@ -122,7 +150,8 @@ body {
 #programmes {
 }
 
-.container, #top {
+.container,
+#top {
   background-color: var(--c_back);
   padding: var(--padding);
 }
