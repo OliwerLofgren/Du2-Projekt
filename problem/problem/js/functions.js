@@ -274,6 +274,47 @@ function update_programmes() {
 
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
+
+//Argument: Funktionen tar inte emot något argument.
+
+//Side effect:
+
+// 1.Vi börjar med att skapa en variabel som är en referens till en nodelist som är alla selekterade li i country_filter.
+// Vi anropar array_each med variabeln med nodelistan och en callback funktion.
+// Detta generar en en array(a)med nodelitstan plus nycklarna ID för varje element översatta till en sträng.
+
+// 2. loopar vi igenom alla element i arryen skapad i den tidigare funktionen och skapar en ny variabel av varje index i arrayen.
+// Därefter loopar UNIVERSITIES igenom och en ny variabel skapas för varje index.
+// Dessa två varaiblar jämförs med deras ”Id”.
+// Om dessa matchas pushas dom in i en ny array(b).
+
+// 3. En tom array deklarerar (X).
+
+// array_each anropas med parametrarna array(b) och en callback funktion.
+// I callbackfunktionen så skapas en ny variabel av varje index i och dess id.
+// Därefter loopas PROGRAMMES och varje index blir en ny variabel(c).
+// Om varje index av PROGRAMMES nyckel ”id”, matchar med tidigare etablerad variabel av array(b).
+// Om funktionen returnerar true pushas c in i x.
+
+// 4. Kommande tre funktioner gör samma sak men med olika värden. (LEVELS, LANGUAGES, SUBJECTS)
+
+// En ny variabel skapas med referens till en nodelist av selekterade li element från vardera förälder med namn baserat på de olika värden. (Z)
+
+// En tom array deklareras. (r)
+// Via array_each anropas  Z och callback-funktion.
+// Callback funtion omvandlar varje index i Z’s nyckelns id till en sträng.
+
+// X värde uppdateras genom array_filter som anropas med värdena x och test_funktionerna.
+// Test funktionen returnerar varje index från r om den inkluderar X.Z.’s id.
+
+// 5. En variabel deklareras som är en referens till input-elements värde. (u)
+// Om variabelns värde är inte är tomt körs test function.
+
+// Test function returnerar en ny array om index av X med nyckeln name inkluderas (u).
+// X värde uppdateras genom array_filter som anropas med värdena (X och test_function).
+
+//Funktionen returnerar programmes
+
 function read_filters() {
   const city_selected_dom = document.querySelectorAll(
     "#country_filter li.selected"
