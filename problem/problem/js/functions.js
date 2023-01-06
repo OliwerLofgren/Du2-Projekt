@@ -107,6 +107,21 @@ function toggle_cities(event) {
 // WRITE SPECIFICATION
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
+
+//Create_countries_cities_filter
+//Argument: This function does not have an argument
+//Side effect: Med hjälp av array each så anropas create_country och även create_city. Returnerar ingenting
+
+//Create_country
+//Argument: Funktionen tar emot ett argument som heter country där country är en variabel för varje index som används i array_each.
+//Side effect: Funktionen använder sig av en variabel som heter dom, med hjälp av dom så skapar vi divar som får klassen country, filter_container och även ett id.
+//Id och namnet ändras för varje index, eftersom vi använder oss av varibeln country och sedan nycklen vi vill komma åt.
+//Funktionen anropar även en test_function som returnerar ett city.ID som är samma som vårt country.ID
+
+//Create_city
+//Argument: Funktionen tar emot ett argument som heter city där cities(en array som vi själv har skapat med hjälp av array_filter) är en variabel som används för varje index i array_each.
+//Side effect: Med hjälp av create_filter_element så skapar vi ett obejekt som innerhåller parent(queryselector), class(selected) och textContent(argumentet och nyckeln till namnet)
+//dom.dataset.id = city.id hjälper oss att placerar ut rätt stad i rätt land (numerisk ordning).
 function create_countries_cities_filters() {
   function create_country(country) {
     const dom = document.createElement("div");
