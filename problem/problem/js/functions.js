@@ -42,6 +42,17 @@ function create_filter_element(data) {
     RETURN VALUE
       Returns a reference to the new dom-element
   */
+  let button = document.querySelector("button");
+  button.classList.add(data.class);
+  button.addEventListener("click", toggle_cities);
+
+  const create_li = document.createElement("li");
+  data.parent.append(create_li);
+  create_li.classList.add(data.class);
+  create_li.textContent = data.textContent;
+  create_li.addEventListener("click", click_filter_element);
+
+  return create_li;
 }
 
 // VG
