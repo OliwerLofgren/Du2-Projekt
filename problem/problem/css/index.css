@@ -59,9 +59,6 @@
   font-family: "Roboto Condensed 400";
 }
 
-body {
-}
-
 #wrapper {
   display: flex;
   flex-direction: column;
@@ -142,12 +139,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-}
-
-#others_filter {
-}
-
-#programmes {
 }
 
 .container,
