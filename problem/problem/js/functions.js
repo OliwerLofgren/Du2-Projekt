@@ -113,7 +113,7 @@ function toggle_cities(event) {
 //This function does not have an argument
 
 //Side effect:
-//Med hjälp av array each så anropas create_country och även create_city. Returnerar ingenting
+//Med hjälp av array each så anropas create_country och även create_city.
 
 //NO RETURN VALUE
 
@@ -125,6 +125,8 @@ function toggle_cities(event) {
 //Funktionen använder sig av en variabel som heter dom, med hjälp av dom så skapar vi divar som får klassen country, filter_container och även ett id.
 //Id och namnet ändras för varje index, eftersom vi använder oss av varibeln country och sedan nycklen vi vill komma åt.
 //Funktionen anropar även en test_function som returnerar ett city.ID som är samma som vårt country.ID
+
+//NO RETURN VALUE
 
 //    Create_city
 //Argument:
@@ -172,7 +174,7 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 
-//Argument: Funktionen tar emot två argument, filter_type är då en varibel som hänvisar parent till rätt förälder. DATA är då vår LANGUAGES, SUBJECT, LEVELS.
+//Argument: Funktionen tar emot två argument, type är då en varibel som hänvisar parent till rätt förälder. DATA är då vår LANGUAGES, SUBJECT, LEVELS.
 
 //Side effect: Funktionen anropar create med hjälp av array_each. Med hjälp av create_filter_element så skapar vi nycklarna för våra arrayer.
 //parent(querySelector(filter_type)), class(selected), textContent(data.name). Där data blir DATA som ändras med hjälp array_each.
@@ -224,18 +226,18 @@ function create_programme(programme) {
   ul_parent = document.querySelector("#programmes >ul").append(ul_dom);
   ul_dom.classList.add("programme");
   ul_dom.innerHTML = `
-    <div class="first_div">
-    <li><b>${programme.name}</b></li>
-    <li>${UNIVERSITIES[programme.universityID].name}</li>
-    <li>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${
+  <div class="first_div">
+  <li><b>${programme.name}</b></li>
+  <li>${UNIVERSITIES[programme.universityID].name}</li>
+  <li>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${
     COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID]
       .name
   }</li >
-    <li>${LEVELS[programme.levelID - 1].name}, ${
+  <li>${LEVELS[programme.levelID - 1].name}, ${
     SUBJECTS[programme.subjectID].name
   }, ${LANGUAGES[programme.languageID].name}</li>
-    </div>
-    <div class="more_info"></div>
+  </div>
+  <div class="more_info"></div>
     <div class="bottom_programme">${
       CITIES[UNIVERSITIES[programme.universityID].cityID].name
     }, sun-index: ${
@@ -289,12 +291,12 @@ function update_programmes() {
 // Vi anropar array_each med variabeln med nodelistan och en callback funktion.
 // Detta generar en en array(city_id_selected)med nodelitstan plus nycklarna ID för varje element översatta till en sträng.
 
-// 2. loopar vi igenom alla element i arryen skapad i den tidigare funktionen och skapar en ny variabel av varje index i arrayen.
+// 2. Vi loopar igenom alla element i arryen skapad i den tidigare funktionen och skapar en ny variabel av varje index i arrayen.
 // Därefter loopar UNIVERSITIES igenom och en ny variabel skapas för varje index.
-// Dessa två varaiblar jämförs med deras ”Id”.
+// Dessa två variablar jämförs med deras ”Id”.
 // Om dessa matchas pushas dom in i en ny array(universities).
 
-// 3. En tom array deklarerar (programmes).
+// 3. En tom array deklareras (programmes).
 
 // array_each anropas med parametrarna array(universities) och en callback funktion.
 // I callbackfunktionen så skapas en ny variabel av varje index i och dess id.
@@ -304,7 +306,7 @@ function update_programmes() {
 
 // 4. Kommande tre funktioner gör samma sak men med olika värden. (LEVELS, LANGUAGES, SUBJECTS)
 
-// En ny variabel skapas med referens till en nodelist av selekterade li element från vardera förälder med namn baserat på de olika värden. (Z)
+// En ny variabel skapas med referens till en nodelist av selekterade li element från vardera förälder med namn baserat på de olika värden. (värdet_id_selected)
 
 // En tom array deklareras. (värdet_id_selected)
 // Via array_each anropas  (värder_dom_selected) och callback-funktion.
