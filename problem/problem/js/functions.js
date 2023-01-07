@@ -167,10 +167,10 @@ function create_countries_cities_filters() {
 //Funktionen anropas tre gånger i index.js
 
 //NO RETURN VALUE
-function create_filters(filter_type, DATA) {
+function create_filters(type, DATA) {
   function create(data) {
     const create_dom = create_filter_element({
-      parent: document.querySelector(`#${filter_type}_filter > ul`),
+      parent: document.querySelector(`#${type}_filter > ul`),
       class: "selected",
       textContent: data.name,
     });
