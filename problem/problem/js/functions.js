@@ -108,20 +108,33 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 
-//Create_countries_cities_filter
-//Argument: This function does not have an argument
-//Side effect: Med hjälp av array each så anropas create_country och även create_city. Returnerar ingenting
+//    Create_countries_cities_filter
+//Argument:
+//This function does not have an argument
 
-//Create_country
-//Argument: Funktionen tar emot ett argument som heter country där country är en variabel för varje index som används i array_each.
-//Side effect: Funktionen använder sig av en variabel som heter dom, med hjälp av dom så skapar vi divar som får klassen country, filter_container och även ett id.
+//Side effect:
+//Med hjälp av array each så anropas create_country och även create_city. Returnerar ingenting
+
+//NO RETURN VALUE
+
+//    Create_country
+//Argument:
+//Funktionen tar emot ett argument som heter country där country är en variabel för varje index som används i array_each.
+
+//Side effect:
+//Funktionen använder sig av en variabel som heter dom, med hjälp av dom så skapar vi divar som får klassen country, filter_container och även ett id.
 //Id och namnet ändras för varje index, eftersom vi använder oss av varibeln country och sedan nycklen vi vill komma åt.
 //Funktionen anropar även en test_function som returnerar ett city.ID som är samma som vårt country.ID
 
-//Create_city
-//Argument: Funktionen tar emot ett argument som heter city där cities(en array som vi själv har skapat med hjälp av array_filter) är en variabel som används för varje index i array_each.
-//Side effect: Med hjälp av create_filter_element så skapar vi ett obejekt som innerhåller parent(queryselector), class(selected) och textContent(argumentet och nyckeln till namnet)
+//    Create_city
+//Argument:
+//Funktionen tar emot ett argument som heter city där cities(en array som vi själv har skapat med hjälp av array_filter) är en variabel som används för varje index i array_each.
+
+//Side effect:
+//Med hjälp av create_filter_element så skapar vi ett obejekt som innerhåller parent(queryselector), class(selected) och textContent(argumentet och nyckeln till namnet)
 //dom.dataset.id = city.id hjälper oss att placerar ut rätt stad i rätt land (numerisk ordning).
+
+//NO RETURN VALUE
 function create_countries_cities_filters() {
   function create_country(country) {
     const dom = document.createElement("div");
@@ -268,43 +281,43 @@ function update_programmes() {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 
-//Argument: Funktionen tar inte emot något argument.
+//Argument:
+//Funktionen tar inte emot något argument.
 
 //Side effect:
-
 // 1.Vi börjar med att skapa en variabel som är en referens till en nodelist som är alla selekterade li i country_filter.
 // Vi anropar array_each med variabeln med nodelistan och en callback funktion.
-// Detta generar en en array(a)med nodelitstan plus nycklarna ID för varje element översatta till en sträng.
+// Detta generar en en array(city_id_selected)med nodelitstan plus nycklarna ID för varje element översatta till en sträng.
 
 // 2. loopar vi igenom alla element i arryen skapad i den tidigare funktionen och skapar en ny variabel av varje index i arrayen.
 // Därefter loopar UNIVERSITIES igenom och en ny variabel skapas för varje index.
 // Dessa två varaiblar jämförs med deras ”Id”.
-// Om dessa matchas pushas dom in i en ny array(b).
+// Om dessa matchas pushas dom in i en ny array(universities).
 
-// 3. En tom array deklarerar (X).
+// 3. En tom array deklarerar (programmes).
 
-// array_each anropas med parametrarna array(b) och en callback funktion.
+// array_each anropas med parametrarna array(universities) och en callback funktion.
 // I callbackfunktionen så skapas en ny variabel av varje index i och dess id.
-// Därefter loopas PROGRAMMES och varje index blir en ny variabel(c).
-// Om varje index av PROGRAMMES nyckel ”id”, matchar med tidigare etablerad variabel av array(b).
-// Om funktionen returnerar true pushas c in i x.
+// Därefter loopas PROGRAMMES och varje index blir en ny variabel(programme).
+// Om varje index av PROGRAMMES nyckel ”id”, matchar med tidigare etablerad variabel av array(universities).
+// Om funktionen returnerar true pushas (programme) in i (programmes).
 
 // 4. Kommande tre funktioner gör samma sak men med olika värden. (LEVELS, LANGUAGES, SUBJECTS)
 
 // En ny variabel skapas med referens till en nodelist av selekterade li element från vardera förälder med namn baserat på de olika värden. (Z)
 
-// En tom array deklareras. (r)
-// Via array_each anropas  Z och callback-funktion.
-// Callback funtion omvandlar varje index i Z’s nyckelns id till en sträng.
+// En tom array deklareras. (värdet_id_selected)
+// Via array_each anropas  (värder_dom_selected) och callback-funktion.
+// Callback funtion omvandlar varje index i (värdet_id_selected) nyckelns id till en sträng.
 
-// X värde uppdateras genom array_filter som anropas med värdena x och test_funktionerna.
-// Test funktionen returnerar varje index från r om den inkluderar X.Z.’s id.
+// (programmes) värde uppdateras genom array_filter som anropas med värdena (programmes) och test_funktionerna.
+// Test funktionen returnerar varje index från (level_id_selected) om den inkluderar (programmes).(värdet_id_selected).’s id.
 
-// 5. En variabel deklareras som är en referens till input-elements värde. (u)
+// 5. En variabel deklareras som är en referens till input-elements värde. (search_string)
 // Om variabelns värde är inte är tomt körs test function.
 
-// Test function returnerar en ny array om index av X med nyckeln name inkluderas (u).
-// X värde uppdateras genom array_filter som anropas med värdena (X och test_function).
+// Test function returnerar en ny array om index av (programmes) med nyckeln name inkluderas (search_string).
+// (programmes) värde uppdateras genom array_filter som anropas med värdena (programmes och test_function).
 
 //Funktionen returnerar programmes
 
