@@ -212,16 +212,16 @@ function create_programme(programme) {
   ul_dom.classList.add("programme");
   ul_dom.innerHTML = `
     <div class="first_div">
-    <p><b>${programme.name}</b></p>
-    <p>${UNIVERSITIES[programme.universityID].name}</p>
-    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${
+    <li><b>${programme.name}</b></li>
+    <li>${UNIVERSITIES[programme.universityID].name}</li>
+    <li>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${
     COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID]
       .name
-  }</p >
-    <p>${LEVELS[programme.levelID - 1].name}, ${
+  }</li >
+    <li>${LEVELS[programme.levelID - 1].name}, ${
     SUBJECTS[programme.subjectID].name
-  }, ${LANGUAGES[programme.languageID].name}</p>
-    </div >
+  }, ${LANGUAGES[programme.languageID].name}</li>
+    </div>
     <div class="more_info"></div>
     <div class="bottom_programme">${
       CITIES[UNIVERSITIES[programme.universityID].cityID].name
