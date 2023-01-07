@@ -229,13 +229,6 @@ function create_programme(programme) {
     CITIES[UNIVERSITIES[programme.universityID].cityID].sun
   } (${percenter(sun_days, 365)}%)</div>
     `;
-  let name_of_city =
-    CITIES[
-      UNIVERSITIES[programme.universityID].cityID
-    ].name.toLocaleLowerCase();
-  let normal_jpg = "_normal_1.jpg";
-  ul_dom.style.backgroundImage =
-    "url('/media/geo_images/${name_of_city}${normal_jpg}')";
 }
 array_each(PROGRAMMES, create_programme);
 // G
